@@ -8,20 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		06EA49D21BDFB6BD005FABEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA49D11BDFB6BD005FABEC /* AppDelegate.swift */; };
-		06EA49D41BDFB6BD005FABEC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA49D31BDFB6BD005FABEC /* ViewController.swift */; };
-		06EA49D71BDFB6BD005FABEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06EA49D51BDFB6BD005FABEC /* Main.storyboard */; };
 		06EA49D91BDFB6BD005FABEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06EA49D81BDFB6BD005FABEC /* Assets.xcassets */; };
-		06EA49DC1BDFB6BD005FABEC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06EA49DA1BDFB6BD005FABEC /* LaunchScreen.storyboard */; };
+		06EA4A0E1BDFBCA9005FABEC /* VRKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06EA4A0D1BDFBCA9005FABEC /* VRKit.framework */; };
+		06EA4A0F1BDFBCA9005FABEC /* VRKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 06EA4A0D1BDFBCA9005FABEC /* VRKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		06EA4A101BDFBCA9005FABEC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				06EA4A0F1BDFBCA9005FABEC /* VRKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		06EA49CE1BDFB6BD005FABEC /* VRPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VRPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EA49D11BDFB6BD005FABEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		06EA49D31BDFB6BD005FABEC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		06EA49D61BDFB6BD005FABEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		06EA49D81BDFB6BD005FABEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		06EA49DB1BDFB6BD005FABEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		06EA49DD1BDFB6BD005FABEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06EA4A0D1BDFBCA9005FABEC /* VRKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = VRKit.framework; path = "/Users/flavaud/Documents/Redhill 14/marmotte/DerivedData/Marmotte/Build/Products/Debug-iphoneos/VRKit.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06EA4A0E1BDFBCA9005FABEC /* VRKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +50,7 @@
 		06EA49C51BDFB6BD005FABEC = {
 			isa = PBXGroup;
 			children = (
+				06EA4A0D1BDFBCA9005FABEC /* VRKit.framework */,
 				06EA49D01BDFB6BD005FABEC /* VRPlayer */,
 				06EA49CF1BDFB6BD005FABEC /* Products */,
 			);
@@ -55,11 +68,8 @@
 			isa = PBXGroup;
 			children = (
 				06EA49D11BDFB6BD005FABEC /* AppDelegate.swift */,
-				06EA49D31BDFB6BD005FABEC /* ViewController.swift */,
-				06EA49D51BDFB6BD005FABEC /* Main.storyboard */,
-				06EA49D81BDFB6BD005FABEC /* Assets.xcassets */,
-				06EA49DA1BDFB6BD005FABEC /* LaunchScreen.storyboard */,
 				06EA49DD1BDFB6BD005FABEC /* Info.plist */,
+				06EA49D81BDFB6BD005FABEC /* Assets.xcassets */,
 			);
 			path = VRPlayer;
 			sourceTree = "<group>";
@@ -74,6 +84,7 @@
 				06EA49CA1BDFB6BD005FABEC /* Sources */,
 				06EA49CB1BDFB6BD005FABEC /* Frameworks */,
 				06EA49CC1BDFB6BD005FABEC /* Resources */,
+				06EA4A101BDFBCA9005FABEC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -96,6 +107,7 @@
 				TargetAttributes = {
 					06EA49CD1BDFB6BD005FABEC = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 8G7NFF8853;
 					};
 				};
 			};
@@ -122,9 +134,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06EA49DC1BDFB6BD005FABEC /* LaunchScreen.storyboard in Resources */,
 				06EA49D91BDFB6BD005FABEC /* Assets.xcassets in Resources */,
-				06EA49D71BDFB6BD005FABEC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,31 +145,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06EA49D41BDFB6BD005FABEC /* ViewController.swift in Sources */,
 				06EA49D21BDFB6BD005FABEC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		06EA49D51BDFB6BD005FABEC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				06EA49D61BDFB6BD005FABEC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		06EA49DA1BDFB6BD005FABEC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				06EA49DB1BDFB6BD005FABEC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		06EA49DE1BDFB6BD005FABEC /* Debug */ = {
@@ -249,6 +239,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VRPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.xxii.VRPlayer;
@@ -260,6 +252,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = VRPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.xxii.VRPlayer;

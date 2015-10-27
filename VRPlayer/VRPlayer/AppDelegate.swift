@@ -7,6 +7,7 @@
 //
 
 import UIKit;
+import VRKit;
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
@@ -16,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool
     {
         // Override point for customization after application launch.
+        let window: UIWindow = UIWindow();
+        window.rootViewController = VRDevViewController();
+        window.makeKeyAndVisible();
+        window.frame = UIScreen.mainScreen().bounds;
+        
+        self.window = window;
+        
         return true;
     }
     

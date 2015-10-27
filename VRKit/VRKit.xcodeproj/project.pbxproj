@@ -8,12 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		06EA49F11BDFB8DC005FABEC /* VRKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 06EA49F01BDFB8DC005FABEC /* VRKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		06EA49FC1BDFB9DB005FABEC /* NSBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA49FB1BDFB9DB005FABEC /* NSBundle.swift */; };
+		06EA49FE1BDFBA30005FABEC /* VRShapeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA49FD1BDFBA30005FABEC /* VRShapeProtocol.swift */; };
+		06EA4A001BDFBA55005FABEC /* VRVertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA49FF1BDFBA55005FABEC /* VRVertex.swift */; };
+		06EA4A021BDFBAA7005FABEC /* VROctahedronShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA4A011BDFBAA7005FABEC /* VROctahedronShape.swift */; };
+		06EA4A041BDFBADA005FABEC /* VRSpereProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA4A031BDFBADA005FABEC /* VRSpereProtocol.swift */; };
+		06EA4A071BDFBB21005FABEC /* Simple.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 06EA4A051BDFBB21005FABEC /* Simple.fsh */; };
+		06EA4A081BDFBB21005FABEC /* Simple.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 06EA4A061BDFBB21005FABEC /* Simple.vsh */; };
+		06EA4A0A1BDFBB77005FABEC /* VRDevViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA4A091BDFBB77005FABEC /* VRDevViewController.swift */; };
+		06EA4A0C1BDFBB84005FABEC /* VRPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06EA4A0B1BDFBB84005FABEC /* VRPlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		06EA49ED1BDFB8DC005FABEC /* VRKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VRKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		06EA49F01BDFB8DC005FABEC /* VRKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VRKit.h; sourceTree = "<group>"; };
 		06EA49F21BDFB8DC005FABEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06EA49FB1BDFB9DB005FABEC /* NSBundle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSBundle.swift; sourceTree = "<group>"; };
+		06EA49FD1BDFBA30005FABEC /* VRShapeProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VRShapeProtocol.swift; sourceTree = "<group>"; };
+		06EA49FF1BDFBA55005FABEC /* VRVertex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VRVertex.swift; sourceTree = "<group>"; };
+		06EA4A011BDFBAA7005FABEC /* VROctahedronShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VROctahedronShape.swift; sourceTree = "<group>"; };
+		06EA4A031BDFBADA005FABEC /* VRSpereProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VRSpereProtocol.swift; sourceTree = "<group>"; };
+		06EA4A051BDFBB21005FABEC /* Simple.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Simple.fsh; sourceTree = "<group>"; };
+		06EA4A061BDFBB21005FABEC /* Simple.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = Simple.vsh; sourceTree = "<group>"; };
+		06EA4A091BDFBB77005FABEC /* VRDevViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VRDevViewController.swift; sourceTree = "<group>"; };
+		06EA4A0B1BDFBB84005FABEC /* VRPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VRPlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,8 +66,41 @@
 			children = (
 				06EA49F01BDFB8DC005FABEC /* VRKit.h */,
 				06EA49F21BDFB8DC005FABEC /* Info.plist */,
+				06EA49FF1BDFBA55005FABEC /* VRVertex.swift */,
+				06EA4A091BDFBB77005FABEC /* VRDevViewController.swift */,
+				06EA4A0B1BDFBB84005FABEC /* VRPlayerViewController.swift */,
+				06EA49F81BDFB997005FABEC /* Extensions */,
+				06EA49F91BDFB9A9005FABEC /* Shapes */,
+				06EA49FA1BDFB9BD005FABEC /* Shaders */,
 			);
 			path = VRKit;
+			sourceTree = "<group>";
+		};
+		06EA49F81BDFB997005FABEC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				06EA49FB1BDFB9DB005FABEC /* NSBundle.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		06EA49F91BDFB9A9005FABEC /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				06EA49FD1BDFBA30005FABEC /* VRShapeProtocol.swift */,
+				06EA4A031BDFBADA005FABEC /* VRSpereProtocol.swift */,
+				06EA4A011BDFBAA7005FABEC /* VROctahedronShape.swift */,
+			);
+			name = Shapes;
+			sourceTree = "<group>";
+		};
+		06EA49FA1BDFB9BD005FABEC /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				06EA4A051BDFBB21005FABEC /* Simple.fsh */,
+				06EA4A061BDFBB21005FABEC /* Simple.vsh */,
+			);
+			name = Shaders;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +146,7 @@
 				TargetAttributes = {
 					06EA49EC1BDFB8DC005FABEC = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 8G7NFF8853;
 					};
 				};
 			};
@@ -120,6 +172,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06EA4A071BDFBB21005FABEC /* Simple.fsh in Resources */,
+				06EA4A081BDFBB21005FABEC /* Simple.vsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +184,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06EA4A041BDFBADA005FABEC /* VRSpereProtocol.swift in Sources */,
+				06EA4A0C1BDFBB84005FABEC /* VRPlayerViewController.swift in Sources */,
+				06EA49FC1BDFB9DB005FABEC /* NSBundle.swift in Sources */,
+				06EA49FE1BDFBA30005FABEC /* VRShapeProtocol.swift in Sources */,
+				06EA4A021BDFBAA7005FABEC /* VROctahedronShape.swift in Sources */,
+				06EA4A0A1BDFBB77005FABEC /* VRDevViewController.swift in Sources */,
+				06EA4A001BDFBA55005FABEC /* VRVertex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +289,8 @@
 		06EA49F61BDFB8DC005FABEC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -238,12 +301,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.xxii.VRKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		06EA49F71BDFB8DC005FABEC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
