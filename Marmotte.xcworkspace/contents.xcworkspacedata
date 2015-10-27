@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:VRKit/VRKit.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:VRPlayer/VRPlayer.xcodeproj">
    </FileRef>
 </Workspace>
