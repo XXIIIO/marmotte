@@ -23,6 +23,7 @@ public class VRDevViewController: GLKViewController
     private let sphere: VRShapeProtocol;
     
     private let motionManager: CMMotionManager;
+    private var referenceAttitude: CMAttitude?;
     
     /**
      *
@@ -32,7 +33,6 @@ public class VRDevViewController: GLKViewController
         self.sphere = VROctahedronShape();
         
         self.motionManager = CMMotionManager()
-        // self.motionManager.startGyroUpdates();
         self.motionManager.startDeviceMotionUpdates();
         
         super.init(nibName: nil, bundle: nil);
@@ -41,6 +41,24 @@ public class VRDevViewController: GLKViewController
     public required init?(coder aDecoder: NSCoder)
     {
         fatalError("init(coder:) has not been implemented");
+    }
+    
+    public override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask
+    {
+        // return UIInterfaceOrientationMask.Landscape;
+        return UIInterfaceOrientationMask.Portrait;
+        // return UIInterfaceOrientationMask.AllButUpsideDown;
+    }
+    
+    public override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator)
+    {
+        print("VRDevViewController -> viewWillTransitionToSize");
+        super.viewWillTransitionToSize(size, withTransitionCoordinator: coordinator);
+    }
+    
+    public override func prefersStatusBarHidden() -> Bool
+    {
+        return false;
     }
     
     /**
@@ -108,43 +126,37 @@ public class VRDevViewController: GLKViewController
         let projectionMatrix: GLKMatrix4 = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65), Float(aspect), 0.0, 10.0);
         self.effect.transform.projectionMatrix = projectionMatrix;
         
-        var modelViewMatrix: GLKMatrix4 = GLKMatrix4MakeTranslation(0.0, 0.0, 0.0);
-        
         if(self.motionManager.deviceMotion != nil)
         {
-            print("\(self.motionManager.deviceMotion!.attitude)");
+            // var modelviewMatrix: GLKMatrix4 = GLKMatrix4Identity;
+            var modelviewMatrix: GLKMatrix4 = GLKMatrix4MakeTranslation(0.0, 0.0, 0.0);
             
-            /*
-            modelViewMatrix = GLKMatrix4Identity;
+            let rollRad: Float = Float(self.motionManager.deviceMotion!.attitude.roll);
+            let rollRadRounded: Float = round(rollRad * 100) / 100
             
-            let roll: Float = -Float(self.motionManager.deviceMotion!.attitude.roll);
-            let yaw: Float = -Float(self.motionManager.deviceMotion!.attitude.yaw);
-            let pitch: Float = -Float(self.motionManager.deviceMotion!.attitude.pitch);
+            let pitchRad: Float = Float(self.motionManager.deviceMotion!.attitude.pitch);
+            let pitchRadRounded: Float = round(pitchRad * 100) / 100;
             
-            modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, pitch);
-            modelViewMatrix = GLKMatrix4RotateY(modelViewMatrix, roll);
-            modelViewMatrix = GLKMatrix4RotateZ(modelViewMatrix, yaw);
+            let yawRad: Float = Float(self.motionManager.deviceMotion!.attitude.yaw);
+            let yawRadRounded: Float = round(yawRad * 100) / 100;
             
-            modelViewMatrix = GLKMatrix4RotateX(modelViewMatrix, Float(M_PI_2));
-            */
-
-            /*
-            modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, Float(M_PI_2), 1, 0, 0);
+            print("roll: \(rollRadRounded) | pitch: \(pitchRadRounded) | yaw: \(yawRadRounded)");
             
-            let roll: Float = Float(self.motionManager.deviceMotion!.attitude.roll);
-            modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, roll, 0, 0, 1);
             
-            let yaw: Float = Float(-self.motionManager.deviceMotion!.attitude.yaw);
-            modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, yaw, 0, 1, 0);
-            */
+            modelviewMatrix = GLKMatrix4Rotate(modelviewMatrix, yawRadRounded, 0, 0, -1);
+            modelviewMatrix = GLKMatrix4Rotate(modelviewMatrix, Float(M_PI_2), 1, 0, 0);
+            
+            modelviewMatrix = GLKMatrix4Rotate(modelviewMatrix, rollRadRounded, sin(yawRadRounded), 0, cos(yawRadRounded));
+            modelviewMatrix = GLKMatrix4Rotate(modelviewMatrix, pitchRadRounded, -cos(yawRadRounded), 0, sin(yawRadRounded));
+            
+            self.effect.transform.modelviewMatrix = modelviewMatrix;
         }
         
-        modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(Float(self.rotationX)), 1, 0, 0);
-        modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(Float(self.rotationY)), 0, 1, 0);
-        self.effect.transform.modelviewMatrix = modelViewMatrix;
         
-        // print(" => \(self.motionManager.deviceMotion?.attitude)");
-        // print(" => \(self.motionManager.deviceMotion?.attitude.pitch)");
+        // var modelViewMatrix: GLKMatrix4 = GLKMatrix4MakeTranslation(0.0, 0.0, 0.0);
+        // modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(Float(-self.rotationX)), 1, 0, 0);
+        // modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, GLKMathDegreesToRadians(Float(-self.rotationY)), 0, 1, 0);
+        // self.effect.transform.modelviewMatrix = modelViewMatrix;
     }
     
     /**
